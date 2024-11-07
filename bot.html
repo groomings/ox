@@ -1,34 +1,126 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sadist bot</title>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="theme-color" content="#0x000f">
+  <meta property="og:url" content="https://sadist.lol" />
+  <meta property="og:title" content="Sadist Bot" />
+  <meta property="og:image" content="https://sadist.lol/assets/sadist-logo.png" />
+  <meta property="og:description" content="Sadist Bot | Ultimate Discord Experience" />
+  <link rel="shortcut icon" type="image/png" href="https://sadist.lol/assets/sadist-icon.png">
+  <link rel="stylesheet" href="css/proj.css">
+  <link rel="stylesheet" href="css/particles.css">
+  <script src="js/gyat.js"></script>
+  <style>
     body {
-        margin: 0;
-        height: 100vh;
-        background-color: #000;
-        font-size: large;
-        font-family: 'Roboto Mono', monospace;
-        color: white;
-        user-select: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-        position: relative; /* Ensure the credits box is positioned relative to the body */
+      margin: 0;
+      height: 100vh;
+      background-color: #000;
+      font-size: large;
+      font-family: 'Roboto Mono', monospace;
+      color: white;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    a:link, a:visited, a:active {
+      color: #aab4ff;
+    }
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+    .project-item {
+      margin: 10px;
+    }
+    .auth-button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #111, #333);
+      border: 2px solid #444;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      text-align: center;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+    .auth-button:hover {
+      background: linear-gradient(45deg, #333, #111);
+      border: 2px solid #666;
+      transform: scale(1.05);
+    }
+    .auth-button-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .auth-text {
+      font-weight: bold;
+      font-family: 'Roboto Mono', monospace;
+      letter-spacing: 1px;
     }
     .credits-box {
-        position: fixed; /* Changed from absolute to fixed for better visibility */
-        bottom: 20px;
-        right: 20px;
-        background: linear-gradient(45deg, #111, #333);
-        padding: 8px 15px;
-        border-radius: 5px;
-        color: #fff;
-        font-size: 14px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        z-index: 1000; /* Ensure it's above other content */
+      position: absolute;
+      bottom: 20px;
+      left: 20px; /* Positioning it at the bottom-left */
+      background: linear-gradient(45deg, #111, #333);
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
-</style>
+    @media (max-width: 600px) {
+      body {
+        font-size: medium;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg"></div>
+  <div class="animation-wrapper">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+  </div>
+  <div class="projects-container">
+    <pre><samp>
+Sadist Bot
+    </samp></pre>
+    <div class="project-item">
+      - <span class="project-desc">A Highly Adaptable and Versatile Utility Bot</span>
+    </div>
+    <button class="auth-button" onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=1262930991597621343'">
+      <div class="auth-button-inner">
+        <span class="auth-text">Authorize Sadist Bot</span>
+      </div>
+    </button>
+  </div>
+  <div class="credits-box">
+    <span>Credits: Cosmin & Heist</span>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.style.opacity = '1';
+    });
+  </script>
+</body>
+</html>
