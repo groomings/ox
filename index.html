@@ -1,347 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SadistBot - The Ultimate Discord Bot</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+import React from 'react';
+import { Home, Star, MessageCircle } from 'lucide-react';
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+const LandingPage = () => {
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Background Circles */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-96 h-96 rounded-full bg-gray-900/20 -top-20 -left-20"></div>
+        <div className="absolute w-72 h-72 rounded-full bg-gray-900/20 top-40 -right-10"></div>
+        <div className="absolute w-64 h-64 rounded-full bg-gray-900/20 bottom-20 left-40"></div>
+      </div>
 
-        body, html {
-            font-family: 'VT323', monospace;
-            background-color: #000;
-            color: #fff;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 800px;
-            padding: 2rem;
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.8);
-            border: 2px solid #fff;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .profile-section {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            transition: transform 0.3s ease, filter 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .profile-pic:hover {
-            transform: scale(1.1) rotate(5deg);
-            filter: invert(1);
-        }
-
-        h1 {
-            font-size: 3em;
-            margin: 0.5rem 0;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin-bottom: 1rem;
-            opacity: 0.7;
-        }
-
-        .dev-badge {
-            display: inline-block;
-            background-color: #5865F2;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            margin-top: 10px;
-        }
-
-        #terminal {
-            position: relative;
-            margin-top: 20px;
-        }
-
-        #command-line {
-            display: flex;
-            align-items: center;
-        }
-
-        #command-prompt {
-            margin-right: 5px;
-        }
-
-        #command-input {
-            background-color: transparent;
-            border: none;
-            color: #fff;
-            font-family: 'VT323', monospace;
-            font-size: 1.2em;
-            width: calc(100% - 20px);
-            padding: 5px;
-            outline: none;
-        }
-
-        #cursor {
-            position: absolute;
-            width: 10px;
-            height: 20px;
-            background-color: #fff;
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        #output {
-            margin-top: 20px;
-            white-space: pre-wrap;
-        }
-
-        /* Background Snowflakes */
-        .snow-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .snowflake-bg {
-            position: absolute;
-            color: #fff;
-            font-size: 20px;
-            opacity: 0;
-            transition: opacity 0.5s;
-            animation: snowfallBg linear infinite;
-        }
-
-        @keyframes snowfallBg {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 0.4;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Cursor Trail Snowflakes */
-        .snowflake-trail {
-            position: absolute;
-            color: #fff;
-            font-size: 16px;
-            opacity: 1;
-            pointer-events: none;
-            animation: dropTrail 2s forwards;
-            z-index: 2;
-        }
-
-        @keyframes dropTrail {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-
-        /* Styling for the footer */
-        footer {
-            background-color: #4CAF50;
-            text-align: center;
-            color: white;
-            padding: 10px 0;
-        }
-
-    </style>
-</head>
-<body>
-    <!-- Snowfall Background -->
-    <div class="snow-bg" id="snow-bg"></div>
-
-    <div class="container">
-        <div class="profile-section">
-            <img src="https://i.postimg.cc/xTcnKgnX/b114a1ad.jpg" alt="SadistBot Profile" class="profile-pic">
-            <h1>SadistBot</h1>
-            <h2>@YourBot on discord</h2>
-            <div class="dev-badge">Developer</div>
+      {/* Navigation */}
+      <div className="relative p-4">
+        <div className="max-w-4xl mx-auto flex justify-center gap-6">
+          <button className="w-16 h-16 rounded-full bg-gray-900 hover:bg-gray-800 flex items-center justify-center transition-all hover:scale-110">
+            <Home size={24} />
+          </button>
+          <button className="w-16 h-16 rounded-full bg-gray-900 hover:bg-gray-800 flex items-center justify-center transition-all hover:scale-110">
+            <Star size={24} />
+          </button>
+          <button className="w-16 h-16 rounded-full bg-gray-900 hover:bg-gray-800 flex items-center justify-center transition-all hover:scale-110">
+            <MessageCircle size={24} />
+          </button>
         </div>
-        <div id="terminal">
-            <p>Welcome to SadistBot's Terminal. Type 'help' for available commands.</p>
-            <div id="command-line">
-                <span id="command-prompt">$</span>
-                <input type="text" id="command-input" autofocus>
-                <span id="cursor"></span>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative max-w-4xl mx-auto px-4 py-12">
+        <div className="flex flex-col items-center">
+          {/* Hero Circle */}
+          <div className="w-72 h-72 rounded-full bg-gray-900 flex items-center justify-center mb-8">
+            <div className="text-center p-8">
+              <h1 className="text-4xl font-bold mb-2">Your Bot Name</h1>
+              <p className="text-gray-400">Discord Enhancement</p>
             </div>
+          </div>
+
+          {/* Description */}
+          <div className="text-center max-w-2xl mb-12">
+            <p className="text-xl text-gray-300">
+              A multipurpose all-in-one bot, enhancing your experience with user-focused commands.
+            </p>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex gap-6">
+            <button className="w-32 h-32 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center font-medium transition-all hover:scale-105">
+              Authorize
+            </button>
+            <button className="w-32 h-32 rounded-full bg-gray-900 hover:bg-gray-800 flex items-center justify-center font-medium transition-all hover:scale-105">
+              Features
+            </button>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-12 text-sm text-gray-500">
+            <a href="#" className="hover:text-gray-300 mr-4">Terms of Service</a>
+            <a href="#" className="hover:text-gray-300">Privacy Policy</a>
+          </div>
         </div>
-        <div id="output"></div>
+      </div>
     </div>
+  );
+};
 
-    <footer>
-        <p>SadistBot | All Rights Reserved | <a href="https://github.com/YourRepoLink">GitHub</a></p>
-    </footer>
-
-    <script>
-        const links = {
-            sadist: "https://sadist.lol",
-            instagram: "https://instagram.com/savlolxd",
-            discord: "https://discord.com/users/1208324820891340821",
-            telegram: "https://t.me/LRx3isgJn",
-            roblox: "https://roblox.com/users/4797272273/profile"
-        };
-
-        const commandInput = document.getElementById('command-input');
-        const output = document.getElementById('output');
-        const cursor = document.getElementById('cursor');
-
-        commandInput.addEventListener('input', updateCursorPosition);
-        commandInput.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                const command = this.value.toLowerCase();
-                this.value = '';
-                executeCommand(command);
-                updateCursorPosition();
-            }
-        });
-
-        function updateCursorPosition() {
-            const inputRect = commandInput.getBoundingClientRect();
-            const inputStyle = window.getComputedStyle(commandInput);
-            const inputText = commandInput.value;
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-            context.font = inputStyle.font;
-            const textWidth = context.measureText(inputText).width;
-            cursor.style.left = `${inputRect.left + textWidth + 5}px`;
-            cursor.style.top = `${inputRect.top}px`;
-            createSnowflakeTrail(cursor.offsetLeft, cursor.offsetTop);
-        }
-
-        function executeCommand(command) {
-            output.innerHTML += `$ ${command}\n`;
-            
-            if (command === 'help') {
-                output.innerHTML += 'Available commands:\n';
-                output.innerHTML += 'open [link] - Open a specific link. Available links:\n';
-                for (const link of Object.keys(links)) {
-                    output.innerHTML += `  - ${link}\n`;
-                }
-                output.innerHTML += 'clear - Clear the terminal\n';
-                output.innerHTML += 'and now - Display the current date and time\n';
-            } else if (command.startsWith('open ')) {
-                const link = command.split(' ')[1];
-                if (links[link]) {
-                    window.open(links[link], '_blank');
-                    output.innerHTML += `Initiating connection to ${link}...\n`;
-                    setTimeout(() => {
-                        output.innerHTML += `Connection established. Redirecting...\n`;
-                    }, 1000);
-                } else {
-                    output.innerHTML += `Error: Link "${link}" not found in database. Type 'help' to see available links.\n`;
-                }
-            } else if (command === 'clear') {
-                output.innerHTML = '';
-            } else if (command === 'and now') {
-                const now = new Date();
-                output.innerHTML += `Current system time: ${now.toLocaleString()}\n`;
-            } else {
-                output.innerHTML += `Command not recognized: ${command}\n`;
-                output.innerHTML += `Type 'help' to see available commands.\n`;
-            }
-
-            output.innerHTML += '\n';
-            output.scrollTop = output.scrollHeight;
-        }
-
-        // Function to create background snowflakes
-        function createSnowBackground() {
-            const snowBg = document.getElementById('snow-bg');
-            const numberOfSnowflakes = 50;
-
-            for (let i = 0; i < numberOfSnowflakes; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.innerHTML = '❄';
-                snowflake.className = 'snowflake-bg';
-                snowflake.style.left = `${Math.random() * 100}vw`;
-                snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
-                snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                snowflake.style.opacity = Math.random();
-                snowflake.style.transform = `translateY(-${Math.random() * 100}px)`;
-                snowBg.appendChild(snowflake);
-            }
-        }
-
-        // Function to create snowflakes following the cursor
-        function createSnowflakeTrail(x, y) {
-            const snowflake = document.createElement('div');
-            snowflake.innerHTML = '❄';
-            snowflake.className = 'snowflake-trail';
-            snowflake.style.left = `${x}px`;
-            snowflake.style.top = `${y}px`;
-            snowflake.style.fontSize = `${Math.random() * 8 + 8}px`;
-            snowflake.style.opacity = 1;
-            document.body.appendChild(snowflake);
-
-            // Remove the snowflake after the animation completes
-            snowflake.addEventListener('animationend', () => {
-                snowflake.remove();
-            });
-        }
-
-        // Initialize background snow
-        createSnowBackground();
-
-        // Initial cursor position
-        updateCursorPosition();
-
-        // Optional: Create snowflakes as the cursor moves
-        document.addEventListener('mousemove', (e) => {
-            createSnowflakeTrail(e.clientX, e.clientY);
-        });
-    </script>
-</body>
-</html>
+export default LandingPage;
