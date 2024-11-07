@@ -71,6 +71,21 @@
       font-family: 'Roboto Mono', monospace;
       letter-spacing: 1px;
     }
+    .credits-box {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #111, #333);
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
     @media (max-width: 600px) {
       body {
         font-size: medium;
@@ -98,6 +113,9 @@ Sadist Bot
         <span class="auth-text">Authorize Sadist Bot</span>
       </div>
     </button>
+  </div>
+  <div class="credits-box">
+    <span>Credits: Cosmin & Heist</span>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
