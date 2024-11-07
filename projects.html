@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>/projects</title>
+  <title>/bot</title>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta name="theme-color" content="#0x000f">
   <meta property="og:url" content="https://sadist.lol" />
@@ -44,20 +44,32 @@
     }
     .auth-button {
       margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: #fff !important;
-      border: none;
-      border-radius: 5px;
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #111, #333);
+      border: 2px solid #444;
+      border-radius: 10px;
+      color: #fff;
       cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 18px;
+      text-align: center;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     }
     .auth-button:hover {
-      background-color: #45a049;
-      color: #fff !important;
-      text-decoration: none;
+      background: linear-gradient(45deg, #333, #111);
+      border: 2px solid #666;
+      transform: scale(1.05);
+    }
+    .auth-button-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .auth-text {
+      font-weight: bold;
+      font-family: 'Roboto Mono', monospace;
+      letter-spacing: 1px;
     }
     @media (max-width: 600px) {
       body {
@@ -79,9 +91,13 @@
 projects:
     </samp></pre>
     <div class="project-item">
-      - Sadist Bot <span class="project-desc">Ultimate Discord Enhancement</span>
+      - Sadist Bot <span class="project-desc">A Highly Adaptable and Versatile Utility Bot</span>
     </div>
-    <button class="auth-button" onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=1262930991597621343'">Authorize</button>
+    <button class="auth-button" onclick="window.location.href='https://discord.com/oauth2/authorize?client_id=1262930991597621343'">
+      <div class="auth-button-inner">
+        <span class="auth-text">Authorize Sadist Bot</span>
+      </div>
+    </button>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
