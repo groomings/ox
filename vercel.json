@@ -2,8 +2,8 @@
   "version": 2,
   "routes": [
     {
-      "src": "/projects",
-      "dest": "/projects.html"
+      "src": "/bot",
+      "dest": "/bot.html"
     },
     {
       "src": "/server",
