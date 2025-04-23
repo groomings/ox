@@ -16,7 +16,7 @@
       color: #4fc3f7;
     }
     .command {
-      background: #1e1e1e;
+      background-color: #1e1e1e;
       margin: 20px 0;
       padding: 20px;
       border-left: 5px solid #4fc3f7;
@@ -44,320 +44,296 @@
 </head>
 <body>
   <h1>Discord Bot Commands</h1>
-    <div class="command">
+
+  <div class="command">
     <div class="command-name">help</div>
-    <div class="command-desc">Shows all commands or a specific category list.</div>
+    <div class="command-desc">Shows all commands or by category. Also sends a .txt file.</div>
     <div class="command-usage">Usage: .help or .help fun</div>
   </div>
 
   <div class="command">
     <div class="command-name">dm</div>
-    <div class="command-desc">Sends a private message to a user.</div>
+    <div class="command-desc">Sends a message to someone's DMs.</div>
     <div class="command-usage">Usage: .dm @user Hello!</div>
   </div>
 
   <div class="command">
-    <div class="command-name">mimic</div>
-    <div class="command-desc">Repeats or mirrors what a user says.</div>
-    <div class="command-usage">Usage: .mimic @user</div>
+    <div class="command-name">setdmdumpchannel</div>
+    <div class="command-desc">Sets where DM dumps go.</div>
+    <div class="command-usage">Usage: .setdmdumpchannel 1234567890123</div>
   </div>
 
   <div class="command">
-    <div class="command-name">purge</div>
-    <div class="command-desc">Deletes a bunch of messages quickly.</div>
-    <div class="command-usage">Usage: .clear 100</div>
+    <div class="command-name">dumpdm</div>
+    <div class="command-desc">Dumps messages from a DM to a file.</div>
+    <div class="command-usage">Usage: .dumpdm @user 50</div>
   </div>
 
   <div class="command">
-    <div class="command-name">8ball</div>
-    <div class="command-desc">Ask a yes/no question. It responds randomly.</div>
-    <div class="command-usage">Usage: .8ball Will I win?</div>
+    <div class="command-name">setphotodumpchannel</div>
+    <div class="command-desc">Sets where dumped photos should go.</div>
+    <div class="command-usage">Usage: .setphotodumpchannel 1234567890123</div>
   </div>
 
   <div class="command">
-    <div class="command-name">about</div>
-    <div class="command-desc">Shows bot info and maybe its vibe.</div>
-    <div class="command-usage">Usage: .about</div>
+    <div class="command-name">dumpphotos</div>
+    <div class="command-desc">Saves photos from a DM into a .zip file.</div>
+    <div class="command-usage">Usage: .dumpphotos @user 20</div>
   </div>
-
-  <div class="command">
-    <div class="command-name">afkvc</div>
-    <div class="command-desc">Moves you to the AFK voice channel.</div>
-    <div class="command-usage">Usage: .afkvc</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">archivephotos</div>
-    <div class="command-desc">Saves all images from DMs into a file.</div>
-    <div class="command-usage">Usage: .archivephotos @user</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">caption</div>
-    <div class="command-desc">Adds text to an attached image.</div>
-    <div class="command-usage">Usage: .caption Me on Monday</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">copyfiles</div>
-    <div class="command-desc">Copies files between folders (local).</div>
-    <div class="command-usage">Usage: .copyfiles ./in ./out</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">dnslookup</div>
-    <div class="command-desc">Checks domain DNS info (like where it's hosted).</div>
-    <div class="command-usage">Usage: .dnslookup example.com</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">encrypt / decrypt</div>
-    <div class="command-desc">Scrambles or unscrambles a message (Caesar cipher style).</div>
-    <div class="command-usage">Usage: .encrypt hello 4 / .decrypt lipps 4</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">extractzip</div>
-    <div class="command-desc">Unzips an attached .zip file right in Discord.</div>
-    <div class="command-usage">Usage: .extractzip</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">find</div>
-    <div class="command-desc">Tracks someone down in Roblox if they're online.</div>
-    <div class="command-usage">Usage: .find username</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">gif</div>
-    <div class="command-desc">Turns a single image into a looped GIF.</div>
-    <div class="command-usage">Usage: .gif</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">react / disablereact</div>
-    <div class="command-desc">Auto-reacts to someone’s messages (or disables it).</div>
-    <div class="command-usage">Usage: .react @user 😂 / .disablereact @user</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">remindme</div>
-    <div class="command-desc">Sets a timer and pings you when it's up.</div>
-    <div class="command-usage">Usage: .remindme 60</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">todo / clear</div>
-    <div class="command-desc">Adds a task to your list or clears it.</div>
-    <div class="command-usage">Usage: .todo walk dog / .clear</div>
-  </div>
-
   <div class="command">
     <div class="command-name">avatar</div>
-    <div class="command-desc">Gets the avatar of a user or yourself.</div>
+    <div class="command-desc">Gets your avatar or someone else's.</div>
     <div class="command-usage">Usage: .avatar @user</div>
   </div>
 
   <div class="command">
-    <div class="command-name">prefix</div>
-    <div class="command-desc">Shows or sets the bot's prefix.</div>
-    <div class="command-usage">Usage: .prefix or .setprefix !</div>
-  </div>
-  <div class="command">
-    <div class="command-name">dumpfiles</div>
-    <div class="command-desc">Dumps attached files from DMs into a set channel.</div>
-    <div class="command-usage">Usage: .dumpfiles @user 30</div>
+    <div class="command-name">serverinfo</div>
+    <div class="command-desc">Shows details about the current server.</div>
+    <div class="command-usage">Usage: .serverinfo</div>
   </div>
 
   <div class="command">
-    <div class="command-name">validateemail</div>
-    <div class="command-desc">Checks if an email is real, temporary, or throwaway.</div>
-    <div class="command-usage">Usage: .validateemail test@mail.com</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">google</div>
-    <div class="command-desc">Googles something and shows top results.</div>
-    <div class="command-usage">Usage: .google how to cook rice</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">GPT</div>
-    <div class="command-desc">Uses GPT-3 to answer or write stuff.</div>
-    <div class="command-usage">Usage: .GPT write me a poem about cats</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">listfiles</div>
-    <div class="command-desc">Shows a list of files in the current directory.</div>
-    <div class="command-usage">Usage: .listfiles</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">logs</div>
-    <div class="command-desc">Gets the bot’s event logs or logs.txt file.</div>
-    <div class="command-usage">Usage: .logs</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">nuke</div>
-    <div class="command-desc">Deletes an entire channel's message history.</div>
-    <div class="command-usage">Usage: .nuke</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">ping</div>
-    <div class="command-desc">Checks bot's ping/latency to Discord.</div>
-    <div class="command-usage">Usage: .ping</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">pingweb</div>
-    <div class="command-desc">Checks if a website is up and shows response time.</div>
-    <div class="command-usage">Usage: .pingweb example.com</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">tokeninfo</div>
-    <div class="command-desc">Gives info about a Discord token.</div>
-    <div class="command-usage">Usage: .tokeninfo <token></div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">restart</div>
-    <div class="command-desc">Restarts the bot (only if you're the owner).</div>
-    <div class="command-usage">Usage: .restart</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">roll</div>
-    <div class="command-desc">Rolls a die — pick your number of sides.</div>
-    <div class="command-usage">Usage: .roll 20</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">screenshot</div>
-    <div class="command-desc">Takes a screenshot of any website.</div>
-    <div class="command-usage">Usage: .screenshot https://discord.com</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">password</div>
-    <div class="command-desc">Generates a quick, random password.</div>
-    <div class="command-usage">Usage: .password</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">vc / vcdisconnect</div>
-    <div class="command-desc">Join or leave a voice channel by ID.</div>
-    <div class="command-usage">Usage: .vc 1234567890 / .vcdisconnect</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">vcstatus / vcmute / vcdeafen</div>
-    <div class="command-desc">Shows VC status or mutes/deafens you.</div>
-    <div class="command-usage">Usage: .vcstatus / .vcmute / .vcdeafen</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">zipcode</div>
-    <div class="command-desc">Looks up info by ZIP code — timezone, area, etc.</div>
-    <div class="command-usage">Usage: .zipcode 90210</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">calc</div>
-    <div class="command-desc">Opens Calculator app (Windows only).</div>
-    <div class="command-usage">Usage: .calc</div>
+    <div class="command-name">snipe</div>
+    <div class="command-desc">Fetches recently deleted messages.</div>
+    <div class="command-usage">Usage: .snipe or .snipe 2</div>
   </div>
 
   <div class="command">
     <div class="command-name">define</div>
-    <div class="command-desc">Gives a definition of any word.</div>
-    <div class="command-usage">Usage: .define swag</div>
+    <div class="command-desc">Gets a definition of a word.</div>
+    <div class="command-usage">Usage: .define meme</div>
   </div>
 
   <div class="command">
-    <div class="command-name">joke</div>
-    <div class="command-desc">Pulls a random dad joke or pun.</div>
-    <div class="command-usage">Usage: .joke</div>
-  </div>
-  <div class="command">
-    <div class="command-name">lock</div>
-    <div class="command-desc">Locks the current channel (no one can talk).</div>
-    <div class="command-usage">Usage: .lock</div>
+    <div class="command-name">silenttyping</div>
+    <div class="command-desc">Toggles your typing status visibility.</div>
+    <div class="command-usage">Usage: .st on or .st off</div>
   </div>
 
   <div class="command">
-    <div class="command-name">unlock</div>
-    <div class="command-desc">Unlocks the channel so people can chat again.</div>
-    <div class="command-usage">Usage: .unlock</div>
+    <div class="command-name">calc</div>
+    <div class="command-desc">Opens calculator (Windows only).</div>
+    <div class="command-usage">Usage: .calc</div>
   </div>
 
   <div class="command">
-    <div class="command-name">meme</div>
-    <div class="command-desc">Sends you a random meme from the web.</div>
-    <div class="command-usage">Usage: .meme</div>
+    <div class="command-name">zipcode</div>
+    <div class="command-desc">Gets info based on ZIP code.</div>
+    <div class="command-usage">Usage: .zipcode 90210</div>
   </div>
 
   <div class="command">
-    <div class="command-name">validatenumber</div>
-    <div class="command-desc">Checks if a phone number is valid or disposable.</div>
-    <div class="command-usage">Usage: .validatenumber +1234567890</div>
+    <div class="command-name">dnslookup</div>
+    <div class="command-desc">Checks domain DNS records.</div>
+    <div class="command-usage">Usage: .dnslookup google.com</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">react</div>
+    <div class="command-desc">Auto-reacts to a user's messages.</div>
+    <div class="command-usage">Usage: .react @user 😂</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">autoreact</div>
+    <div class="command-desc">Toggles auto-react mode.</div>
+    <div class="command-usage">Usage: .autoreact on / .autoreact off</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">disablereact</div>
+    <div class="command-desc">Turns off auto-react for a user.</div>
+    <div class="command-usage">Usage: .disablereact @user</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">status</div>
+    <div class="command-desc">Sets your custom status.</div>
+    <div class="command-usage">Usage: .status Watching YouTube</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">stream</div>
+    <div class="command-desc">Changes your rich presence status.</div>
+    <div class="command-usage">Usage: .stream New Music</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">GPT</div>
+    <div class="command-desc">Uses OpenAI to generate a response.</div>
+    <div class="command-usage">Usage: .GPT what's a haiku?</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">google</div>
+    <div class="command-desc">Returns a top Google search result.</div>
+    <div class="command-usage">Usage: .google discord bot tutorial</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">screenshot</div>
+    <div class="command-desc">Takes a screenshot of a site.</div>
+    <div class="command-usage">Usage: .screenshot https://discord.com</div>
   </div>
 
   <div class="command">
     <div class="command-name">tiktok</div>
-    <div class="command-desc">Grabs details and links from a TikTok video.</div>
-    <div class="command-usage">Usage: .tiktok <url></div>
+    <div class="command-desc">Finds a TikTok video using a keyword.</div>
+    <div class="command-usage">Usage: .tiktok funny cat</div>
   </div>
-
   <div class="command">
-    <div class="command-name">txt</div>
-    <div class="command-desc">Creates a .txt file with your message and sends it.</div>
-    <div class="command-usage">Usage: .txt notes Hey there this is saved</div>
+    <div class="command-name">prefix</div>
+    <div class="command-desc">Shows or changes the bot prefix.</div>
+    <div class="command-usage">Usage: .prefix or .setprefix !</div>
   </div>
 
   <div class="command">
     <div class="command-name">uptime</div>
-    <div class="command-desc">Shows how long the bot’s been online.</div>
+    <div class="command-desc">Displays how long the bot has been online.</div>
     <div class="command-usage">Usage: .uptime</div>
   </div>
 
   <div class="command">
+    <div class="command-name">restart</div>
+    <div class="command-desc">Restarts the bot (owner only).</div>
+    <div class="command-usage">Usage: .restart</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">vc</div>
+    <div class="command-desc">Joins a voice channel by ID.</div>
+    <div class="command-usage">Usage: .vc 1234567890</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">vcdisconnect</div>
+    <div class="command-desc">Disconnects from a voice channel.</div>
+    <div class="command-usage">Usage: .vcdisconnect</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">vcstatus</div>
+    <div class="command-desc">Shows your VC mute/deafen state.</div>
+    <div class="command-usage">Usage: .vcstatus</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">vcmute</div>
+    <div class="command-desc">Toggles your mute status in VC.</div>
+    <div class="command-usage">Usage: .vcmute</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">vcdeafen</div>
+    <div class="command-desc">Toggles your deafen status in VC.</div>
+    <div class="command-usage">Usage: .vcdeafen</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">password</div>
+    <div class="command-desc">Generates a random secure password.</div>
+    <div class="command-usage">Usage: .password</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">encrypt</div>
+    <div class="command-desc">Encrypts a message using Caesar cipher.</div>
+    <div class="command-usage">Usage: .encrypt hello 4</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">decrypt</div>
+    <div class="command-desc">Decrypts a Caesar-encrypted message.</div>
+    <div class="command-usage">Usage: .decrypt lipps 4</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">gif</div>
+    <div class="command-desc">Turns an image into a looped gif.</div>
+    <div class="command-usage">Usage: .gif</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">logs</div>
+    <div class="command-desc">Sends bot logs or a logs file.</div>
+    <div class="command-usage">Usage: .logs</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">validateemail</div>
+    <div class="command-desc">Checks if an email is real or temporary.</div>
+    <div class="command-usage">Usage: .validateemail test@mail.com</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">validatenumber</div>
+    <div class="command-desc">Checks if a phone number is valid or fake.</div>
+    <div class="command-usage">Usage: .validatenumber +123456789</div>
+  </div>
+
+  <div class="command">
     <div class="command-name">ipinfo</div>
-    <div class="command-desc">Fetches details about an IP address.</div>
+    <div class="command-desc">Looks up IP address details.</div>
     <div class="command-usage">Usage: .ipinfo 8.8.8.8</div>
   </div>
 
   <div class="command">
     <div class="command-name">reload</div>
-    <div class="command-desc">Reloads a command module. Dev-only.</div>
-    <div class="command-usage">Usage: .reload commands.ping</div>
+    <div class="command-desc">Reloads a module (dev only).</div>
+    <div class="command-usage">Usage: .reload commands.help</div>
+  </div>
+  <div class="command">
+    <div class="command-name">txt</div>
+    <div class="command-desc">Creates and sends a .txt file from your message.</div>
+    <div class="command-usage">Usage: .txt notes Hello there!</div>
   </div>
 
   <div class="command">
-    <div class="command-name">status</div>
-    <div class="command-desc">Changes the bot's activity status.</div>
-    <div class="command-usage">Usage: .status coding in Discord</div>
+    <div class="command-name">lock</div>
+    <div class="command-desc">Locks the current text channel.</div>
+    <div class="command-usage">Usage: .lock</div>
   </div>
 
   <div class="command">
-    <div class="command-name">time</div>
-    <div class="command-desc">Shows the current UTC time or in a timezone.</div>
-    <div class="command-usage">Usage: .time or .time EST</div>
+    <div class="command-name">unlock</div>
+    <div class="command-desc">Unlocks the channel so people can type again.</div>
+    <div class="command-usage">Usage: .unlock</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">caption</div>
+    <div class="command-desc">Adds a caption to an image you upload.</div>
+    <div class="command-usage">Usage: .caption This is a meme</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">copyfiles</div>
+    <div class="command-desc">Copies files from one folder to another (local).</div>
+    <div class="command-usage">Usage: .copyfiles ./source ./dest</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">extractzip</div>
+    <div class="command-desc">Extracts all files from an uploaded zip archive.</div>
+    <div class="command-usage">Usage: .extractzip</div>
   </div>
 
   <div class="command">
     <div class="command-name">zip</div>
-    <div class="command-desc">Zips up attached files and sends the zip.</div>
-    <div class="command-usage">Usage: .zip myfiles</div>
+    <div class="command-desc">Compresses your uploaded files into a .zip file.</div>
+    <div class="command-usage">Usage: .zip mybackup</div>
   </div>
 
   <div class="command">
-    <div class="command-name">scrape</div>
-    <div class="command-desc">Scrapes text from a webpage using an API.</div>
-    <div class="command-usage">Usage: .scrape https://example.com</div>
+    <div class="command-name">todo</div>
+    <div class="command-desc">Adds a task to your to-do list.</div>
+    <div class="command-usage">Usage: .todo feed the cat</div>
+  </div>
+
+  <div class="command">
+    <div class="command-name">clear</div>
+    <div class="command-desc">Clears your entire to-do list.</div>
+    <div class="command-usage">Usage: .clear</div>
   </div>
 
 </body>
