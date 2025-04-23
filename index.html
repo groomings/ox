@@ -1,51 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bot Help Commands</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #1e1e1e;
-      color: #f1f1f1;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #eee;
       padding: 40px;
     }
     h1 {
+      text-align: center;
       color: #4fc3f7;
     }
-    .category {
-      margin-top: 30px;
+    .command-block {
+      background-color: #1e1e1e;
+      margin: 20px 0;
       padding: 20px;
-      border-left: 4px solid #4fc3f7;
-      background-color: #2a2a2a;
-    }
-    .command {
-      margin: 5px 0;
-      padding-left: 10px;
+      border-left: 5px solid #4fc3f7;
+      border-radius: 8px;
     }
     .command-name {
-      font-weight: bold;
+      font-size: 1.3em;
       color: #81d4fa;
+    }
+    .command-desc {
+      font-size: 0.95em;
+      margin: 5px 0;
+      color: #ccc;
+    }
+    .command-usage {
+      background-color: #2a2a2a;
+      padding: 10px;
+      font-family: monospace;
+      border-radius: 4px;
+      color: #cfd8dc;
     }
   </style>
 </head>
 <body>
-  <h1>Bot Help Commands</h1>
 
-  <div class="category">
-    <h2>General</h2>
-    <div class="command"><span class="command-name">help</span>: Displays this help message or category-specific commands</div>
-    <div class="command"><span class="command-name">ping</span>: Calculates and displays the bot's latency</div>
-    <div class="command"><span class="command-name">about</span>: Displays information about the self-bot</div>
-    <div class="command"><span class="command-name">time</span>: Displays the current time</div>
-  </div>
+<h1>Bot Commands</h1>
 
-  <div class="category">
-    <h2>DM</h2>
-    <div class="command"><span class="command-name">setdmdumpchannel</span>: Sets the target channel ID for the dumpdm command</div>
-    <div class="command"><span class="command-name">dumpdm</span>: Dumps messages from a DM to a .txt file</div>
-    <div class="command"><span class="command-name">dm</span>: Sends a direct message to a user</div>
-  </div>
+<div class="command-block">
+  <div class="command-name">help</div>
+  <div class="command-desc">Shows all commands or a specific category list.</div>
+  <div class="command-usage">Usage: .help or .help fun</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">dm</div>
+  <div class="command-desc">Sends a private message to a user.</div>
+  <div class="command-usage">Usage: .dm @user Hello!</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">mimic</div>
+  <div class="command-desc">Repeats a user's message or copies everything they say.</div>
+  <div class="command-usage">Usage: .mimic @user</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">purge</div>
+  <div class="command-desc">Deletes a bunch of messages fast.</div>
+  <div class="command-usage">Usage: .clear 100</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">8ball</div>
+  <div class="command-desc">Ask a yes/no question. It answers like magic.</div>
+  <div class="command-usage">Usage: .8ball Is pizza the best?</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">about</div>
+  <div class="command-desc">Shows info about this bot.</div>
+  <div class="command-usage">Usage: .about</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">define</div>
+  <div class="command-desc">Looks up the meaning of a word.</div>
+  <div class="command-usage">Usage: .define chill</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">calc</div>
+  <div class="command-desc">Opens calculator on Windows.</div>
+  <div class="command-usage">Usage: .calc</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">caption</div>
+  <div class="command-desc">Adds a caption to an attached image.</div>
+  <div class="command-usage">Usage: .caption When you realize it's Monday again</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">autoreact</div>
+  <div class="command-desc">Auto-reacts to a specific user's messages.</div>
+  <div class="command-usage">Usage: .autoreact on 😂</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">dumpdm</div>
+  <div class="command-desc">Saves messages from a DM to a file.</div>
+  <div class="command-usage">Usage: .dumpdm @user 50</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">gif</div>
+  <div class="command-desc">Turns an image into a looping gif.</div>
+  <div class="command-usage">Usage: .gif</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">google</div>
+  <div class="command-desc">Searches Google for something.</div>
+  <div class="command-usage">Usage: .google cute cats</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">pingweb</div>
+  <div class="command-desc">Checks if a website is up and how fast it loads.</div>
+  <div class="command-usage">Usage: .pingweb https://discord.com</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">prefix</div>
+  <div class="command-desc">Tells you the current bot prefix.</div>
+  <div class="command-usage">Usage: .prefix</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">status</div>
+  <div class="command-desc">Sets a custom game or status for the bot.</div>
+  <div class="command-usage">Usage: .status Watching memes</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">uptime</div>
+  <div class="command-desc">Tells how long the bot’s been online.</div>
+  <div class="command-usage">Usage: .uptime</div>
+</div>
+
+<div class="command-block">
+  <div class="command-name">lock / unlock</div>
+  <div class="command-desc">Stops or allows users to send messages in a channel.</div>
+  <div class="command-usage">Usage: .lock or .unlock</div>
+</div>
 
 
 </body>
