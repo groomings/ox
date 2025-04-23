@@ -1,81 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/fontawsomepro.js"></script>
-<script src="js/script.js"></script>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/particles.css">
-<title>Sadist</title>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<meta name="theme-color" content="#0x000f">
-<meta property="og:url" content="https://sadist.lol" />
-<meta property="og:title" content="Sadist" />
-<meta property="og:image" content="https://sadist.lol/assets/sadist-logo.png" />
-<meta property="og:description" content="Sadist Bot | The best discord utility bot" />
-<link rel="shortcut icon" type="image/png" href="https://sadist.lol/assets/sadist-icon.png">
+  <meta charset="UTF-8">
+  <title>Bot Help Commands</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #f1f1f1;
+      padding: 40px;
+    }
+    h1 {
+      color: #4fc3f7;
+    }
+    .category {
+      margin-top: 30px;
+      padding: 20px;
+      border-left: 4px solid #4fc3f7;
+      background-color: #2a2a2a;
+    }
+    .command {
+      margin: 5px 0;
+      padding-left: 10px;
+    }
+    .command-name {
+      font-weight: bold;
+      color: #81d4fa;
+    }
+  </style>
 </head>
 <body>
-<div class="page-bg"></div>
-<div class="animation-wrapper">
-    <div class="particle particle-1"></div>
-    <div class="particle particle-2"></div>
-    <div class="particle particle-3"></div>
-    <div class="particle particle-4"></div>
-</div>
-<div class="main">
-    <div class="before">
-        <h1>click to enter</h1>
-    </div>
-    <div class="after">
-        <div class="top">
-            <h1>Sadist <span class="small">Bot</span></h1>
-            <div class="socials">
-                <a href="https://discord.gg/hV8YeSX7Nm" class="discord-link"><i class="fa-brands fa-discord"></i></a>
-            </div>
-        </div>
-        <div class="volume-bar">
-            <div class="volume-progress"></div>
-        </div>        
-        <div class="divider">
-            <i class="fa-light fa-plus"></i>
-            <div class="currently-playing" onclick="changeAudio()"></div>
-            <div class="visualizer">
-                <div class="progress"></div>
-            </div>
-            <i class="fa-light fa-plus"></i>
-        </div>
-        <p style="text-align:center"> <a href="https://discord.gg/hV8YeSX7Nm">Server</a></p>
-        <p style="text-align:center"> <a href="https://sadist.lol/bot">authorize the bot</a></p>
-    </div>
-</div>
+  <h1>Bot Help Commands</h1>
 
-<!-- Credits Box -->
-<div class="credits-box">
-    <span>Credits:cosmin & heist</span>
-</div>
+  <div class="category">
+    <h2>General</h2>
+    <div class="command"><span class="command-name">help</span>: Displays this help message or category-specific commands</div>
+    <div class="command"><span class="command-name">ping</span>: Calculates and displays the bot's latency</div>
+    <div class="command"><span class="command-name">about</span>: Displays information about the self-bot</div>
+    <div class="command"><span class="command-name">time</span>: Displays the current time</div>
+  </div>
 
-<script src="js/transition.js"></script>
-<script src="js/gyat.js"></script>
+  <div class="category">
+    <h2>DM</h2>
+    <div class="command"><span class="command-name">setdmdumpchannel</span>: Sets the target channel ID for the dumpdm command</div>
+    <div class="command"><span class="command-name">dumpdm</span>: Dumps messages from a DM to a .txt file</div>
+    <div class="command"><span class="command-name">dm</span>: Sends a direct message to a user</div>
+  </div>
+
+
 </body>
 </html>
-
-<style>
-    .credits-box {
-        position: absolute;
-        bottom: 20px;
-        left: 20px; /* Positioned at the bottom-left */
-        background: linear-gradient(45deg, #111, #333);
-        padding: 8px 15px;
-        border-radius: 5px;
-        color: #fff;
-        font-size: 14px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-</style>
