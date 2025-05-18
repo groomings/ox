@@ -1,332 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cmds :p</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>sadist.lol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f2f2;
-      color: #000;
-      padding: 40px;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0f111a;
+      color: #e1e1e1;
+      display: flex;
+      height: 100vh;
     }
 
-    h1 {
-      text-align: center;
-      color: #222;
+    .sidebar {
+      width: 260px;
+      background: #121420;
+      padding: 30px 20px;
+      box-sizing: border-box;
     }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      margin-bottom: 25px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .command {
-      background-color: #ffffff;
-      margin: 20px 0;
-      padding: 25px;
-      border-left: 6px solid #333;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .command-name {
-      font-size: 1.6em;
+    .sidebar h2 {
+      font-size: 26px;
       font-weight: 800;
-      color: #000;
+      color: #3d79ff;
+      margin-bottom: 40px;
     }
 
-    .command-desc {
-      font-size: 1.15em;
+    .category {
+      font-size: 16px;
       font-weight: 600;
-      margin-top: 10px;
-      color: #111;
+      padding: 12px 20px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      background-color: #1a1d2e;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .command-usage {
-      font-size: 1.05em;
-      font-weight: 600;
-      margin-top: 15px;
-      background: #e9e9e9;
-      padding: 10px;
-      font-family: monospace;
-      color: #000;
+    .category:hover,
+    .category.active {
+      background-color: #3d79ff;
+      color: #ffffff;
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar input {
+      width: 400px;
+      padding: 14px;
+      font-size: 16px;
+      background: #1a1c29;
+      color: white;
+      border: 1px solid #2a2d41;
+      border-radius: 8px;
+    }
+
+    .command-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .command-card {
+      background: #1e2132;
+      border-left: 4px solid #3d79ff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+    }
+
+    .command-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      color: #3d79ff;
+      font-weight: 700;
+    }
+
+    .command-card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #cfcfcf;
+    }
+
+    .command-card code {
+      display: block;
+      background: #2a2a2a;
+      padding: 8px;
       border-radius: 4px;
+      color: #cfd8dc;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .hidden {
+      display: none !important;
     }
   </style>
 </head>
 <body>
-
-  <h1>commands :P / @btr for help</h1>
-  <input type="text" id="searchBox" placeholder="Search commands..." onkeyup="filterCommands()">
-  <div class="command">
-    <div class="command-name">help</div>
-    <div class="command-desc">Shows all commands or by category. Also sends a .txt file.</div>
-    <div class="command-usage">Usage: .help </div>
+  <div class="sidebar">
+    <h2>commands :p</h2>
+    <div class="category active" data-category="all">All</div>
+    <div class="category" data-category="fun">Fun</div>
+    <div class="category" data-category="utility">Utility</div>
+    <div class="category" data-category="moderation">Moderation</div>
+    <div class="category" data-category="music">Music</div>
+    <div class="category" data-category="admin">Admin</div>
+    <div class="category" data-category="ai">AI</div>
+    <div class="category" data-category="info">Info</div>
+    <div class="category" data-category="status">Status</div>
+    <div class="category" data-category="local">Local</div>
   </div>
 
-  <div class="command">
-    <div class="command-name">dm</div>
-    <div class="command-desc">Sends a message to someone's DMs.</div>
-    <div class="command-usage">Usage: .dm @user Hello!</div>
+  <div class="main">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for a command...">
+    </div>
+
+    <div class="command-container" id="commandList">
+<div class="command-card" data-category="utility">
+  <h3>.help</h3>
+  <p>Shows all commands or by category. Also sends a .txt file.</p>
+  <code>Usage: .help or .help fun</code>
+</div>
+
+<div class="command-card" data-category="fun">
+  <h3>.joke</h3>
+  <p>Sends a random joke.</p>
+  <code>Usage: .joke</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.ban</h3>
+  <p>Bans a user from the server.</p>
+  <code>Usage: .ban @user</code>
+</div>
+
+<div class="command-card" data-category="fun">
+  <h3>.meme</h3>
+  <p>Shows a random meme.</p>
+  <code>Usage: .meme</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.userinfo</h3>
+  <p>Displays information about a user.</p>
+  <code>Usage: .userinfo @user</code>
+</div>
+
+<div class="command-card" data-category="music">
+  <h3>.play</h3>
+  <p>Plays a song from YouTube.</p>
+  <code>Usage: .play [song name]</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.kick</h3>
+  <p>Kicks a member from the server.</p>
+  <code>Usage: .kick @user</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.avatar</h3>
+  <p>Displays the user's avatar.</p>
+  <code>Usage: .avatar @user</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.ping</h3>
+  <p>Checks the bot's latency.</p>
+  <code>Usage: .ping</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.archivephotos</h3>
+  <p>Archives all images from a channel into a zip file.</p>
+  <code>Usage: .archivephotos &lt;channel_id&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.autoall</h3>
+  <p>Automates embeds from source channels to webhooks.</p>
+  <code>Usage: .autoall</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.stopall</h3>
+  <p>Stops auto embedding from all webhooks.</p>
+  <code>Usage: .stopall</code>
+</div>
+
+<div class="command-card" data-category="fun">
+  <h3>.autoreact</h3>
+  <p>Auto-reacts to user messages with a selected emoji.</p>
+  <code>Usage: .autoreact on 💀 / .autoreact off</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.antikick</h3>
+  <p>Prevents being kicked from group chats.</p>
+  <code>Usage: .antikick</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.allowkick</h3>
+  <p>Re-enables kick permission in group chats.</p>
+  <code>Usage: .allowkick</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.st</h3>
+  <p>Silent typing indicator on/off.</p>
+  <code>Usage: .st on/off</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.silent_typing_message</h3>
+  <p>Sends a silent message with typing.</p>
+  <code>Usage: .silent_typing_message &lt;msg&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.afkvc</h3>
+  <p>Joins your voice channel after AFK timeout.</p>
+  <code>Usage: .afkvc</code>
+</div>
+
+<div class="command-card" data-category="ai">
+  <h3>.gpt</h3>
+  <p>Ask a question to the AI bot.</p>
+  <code>Usage: .gpt &lt;question&gt;</code>
+</div>
+
+<div class="command-card" data-category="info">
+  <h3>.btokeninfo</h3>
+  <p>Get billing info from a bot token.</p>
+  <code>Usage: .btokeninfo &lt;token&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.copyfiles</h3>
+  <p>Copy image files between two Discord channels.</p>
+  <code>Usage: .copyfiles &lt;source&gt; &lt;target&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.define</h3>
+  <p>Fetch definition of a word.</p>
+  <code>Usage: .define &lt;word&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.dm</h3>
+  <p>Send a DM to a user.</p>
+  <code>Usage: .dm @user &lt;message&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.dnslookup</h3>
+  <p>Fetch DNS records of a domain.</p>
+  <code>Usage: .dnslookup &lt;domain&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.validateemail</h3>
+  <p>Validates email address.</p>
+  <code>Usage: .validateemail &lt;email&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.encrypt</h3>
+  <p>Encrypt message with Caesar cipher.</p>
+  <code>Usage: .encrypt &lt;text&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.decrypt</h3>
+  <p>Decrypt Caesar cipher text.</p>
+  <code>Usage: .decrypt &lt;text&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.google</h3>
+  <p>Search Google for a term.</p>
+  <code>Usage: .google &lt;query&gt;</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.purge</h3>
+  <p>Bulk delete a number of messages.</p>
+  <code>Usage: .purge &lt;amount&gt;</code>
+</div>
+<div class="command-card" data-category="utility">
+  <h3>.listfiles</h3>
+  <p>List files in a directory.</p>
+  <code>Usage: .listfiles [directory]</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.logfiles</h3>
+  <p>Save and zip all attachments from a channel.</p>
+  <code>Usage: .logfiles &lt;source_id&gt; &lt;target_id&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.logmsg</h3>
+  <p>Log all messages from a channel.</p>
+  <code>Usage: .logmsg &lt;source&gt; &lt;target&gt;</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.nuke</h3>
+  <p>Delete and recreate current text channel.</p>
+  <code>Usage: .nuke</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.pingweb</h3>
+  <p>Check website response time.</p>
+  <code>Usage: .pingweb &lt;url&gt;</code>
+</div>
+
+<div class="command-card" data-category="info">
+  <h3>.prefix</h3>
+  <p>Show current bot prefix.</p>
+  <code>Usage: .prefix</code>
+</div>
+
+<div class="command-card" data-category="fun">
+  <h3>.nitrosnipe</h3>
+  <p>Snipes Nitro codes in real time.</p>
+  <code>Usage: *automatic*</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.todo</h3>
+  <p>Add task to to-do list.</p>
+  <code>Usage: .todo &lt;task&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.clear</h3>
+  <p>Clear your to-do list.</p>
+  <code>Usage: .clear</code>
+</div>
+
+<div class="command-card" data-category="fun">
+  <h3>.react</h3>
+  <p>Auto-react to messages from a user.</p>
+  <code>Usage: .react &lt;user_id&gt; &lt;emoji&gt;</code>
+</div>
+
+<div class="command-card" data-category="fun">
+  <h3>.disablereact</h3>
+  <p>Turn off auto-reactions.</p>
+  <code>Usage: .disablereact</code>
+</div>
+
+<div class="command-card" data-category="admin">
+  <h3>.reloadall</h3>
+  <p>Reload all bot modules.</p>
+  <code>Usage: .reloadall</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.remindme</h3>
+  <p>Set a reminder.</p>
+  <code>Usage: .remindme &lt;seconds&gt; &lt;msg&gt;</code>
+</div>
+
+<div class="command-card" data-category="admin">
+  <h3>.restart</h3>
+  <p>Restart the bot.</p>
+  <code>Usage: .restart</code>
+</div>
+
+<div class="command-card" data-category="fun">
+  <h3>.roll</h3>
+  <p>Roll a dice (optionally specify sides).</p>
+  <code>Usage: .roll [sides]</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.screenshot</h3>
+  <p>Capture a screenshot of a website.</p>
+  <code>Usage: .screenshot &lt;url&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.shorten</h3>
+  <p>Shorten a URL using TinyURL.</p>
+  <code>Usage: .shorten &lt;url&gt;</code>
+</div>
+
+<div class="command-card" data-category="status">
+  <h3>.stopstream</h3>
+  <p>Stop bot streaming status.</p>
+  <code>Usage: .stopstream</code>
+</div>
+
+<div class="command-card" data-category="status">
+  <h3>.stream</h3>
+  <p>Set streaming status.</p>
+  <code>Usage: .stream &lt;text&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.password</h3>
+  <p>Generate a secure password.</p>
+  <code>Usage: .password &lt;length&gt;</code>
+</div>
+
+<div class="command-card" data-category="info">
+  <h3>.tokeninfo</h3>
+  <p>Check a token's info.</p>
+  <code>Usage: .tokeninfo &lt;token&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.txt</h3>
+  <p>Write a message to a txt file.</p>
+  <code>Usage: .txt &lt;filename&gt; &lt;msg&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.uptime</h3>
+  <p>Show how long the bot has been running.</p>
+  <code>Usage: .uptime</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.vc</h3>
+  <p>Join a voice channel.</p>
+  <code>Usage: .vc &lt;channel_id&gt;</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.lock</h3>
+  <p>Lock the current text channel.</p>
+  <code>Usage: .lock</code>
+</div>
+
+<div class="command-card" data-category="moderation">
+  <h3>.unlock</h3>
+  <p>Unlock the current text channel.</p>
+  <code>Usage: .unlock</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.zip</h3>
+  <p>Zip attachments into a file.</p>
+  <code>Usage: .zip archive</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.unzip</h3>
+  <p>Unzip and return contents of attached zip file.</p>
+  <code>Usage: .unzip</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.time</h3>
+  <p>Show current UTC time or a timezone.</p>
+  <code>Usage: .time [zone]</code>
+</div>
+
+<div class="command-card" data-category="admin">
+  <h3>.reload</h3>
+  <p>Reload a bot command file.</p>
+  <code>Usage: .reload commandname</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.tiktok</h3>
+  <p>Fetch TikTok video info & music.</p>
+  <code>Usage: .tiktok &lt;url&gt;</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.validatenumber</h3>
+  <p>Check if a phone number is real or virtual.</p>
+  <code>Usage: .validatenumber +1234567890</code>
+</div>
+
+<div class="command-card" data-category="utility">
+  <h3>.scrape</h3>
+  <p>Scrape and return content of a webpage.</p>
+  <code>Usage: .scrape &lt;url&gt;</code>
+</div>
+    </div>
   </div>
 
-  <div class="command">
-    <div class="command-name">setdmdumpchannel</div>
-    <div class="command-desc">Sets where DM dumps go.</div>
-    <div class="command-usage">Usage: .setdmdumpchannel 1234567890123</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">logmsg</div>
-    <div class="command-desc">log messages from a DM/groupchat to a txt channel.</div>
-    <div class="command-usage">Usage: logmsg "id of channel you want to take the messages from dm/group" "id of where you want to send it dm/group/server" 50</div>
-  </div>
-
-
-  <div class="command">
-    <div class="command-name">logfiles</div>
-    <div class="command-desc">log photos from a DM into a .zip file.</div>
-    <div class="command-usage">Usage: .logfiles  "id of channel you want to take the files from dm/group" "id of where you want to send it dm/group/server" </div>
-  </div>
-  
-  <div class="command">
-    <div class="command-name">avatar</div>
-    <div class="command-desc">Gets your avatar or someone else's.</div>
-    <div class="command-usage">Usage: .avatar @user</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">serverinfo</div>
-    <div class="command-desc">Shows details about the current server.</div>
-    <div class="command-usage">Usage: .serverinfo</div>
-  </div>
-
-
-  <div class="command">
-    <div class="command-name">define</div>
-    <div class="command-desc">Gets a definition of a word.</div>
-    <div class="command-usage">Usage: .define meme</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">silenttyping</div>
-    <div class="command-desc">Toggles your typing status visibility.</div>
-    <div class="command-usage">Usage: .st on or .st off</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">calc</div>
-    <div class="command-desc">Opens calculator (Windows only).</div>
-    <div class="command-usage">Usage: .calc</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">zipcode</div>
-    <div class="command-desc">Gets info based on ZIP code.</div>
-    <div class="command-usage">Usage: .zipcode 90210</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">dnslookup</div>
-    <div class="command-desc">Checks domain DNS records.</div>
-    <div class="command-usage">Usage: .dnslookup google.com</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">react</div>
-    <div class="command-desc">Auto-reacts to a user's messages.</div>
-    <div class="command-usage">Usage: .react @user 😂</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">autoreact</div>
-    <div class="command-desc">Toggles auto-react mode.</div>
-    <div class="command-usage">Usage: .autoreact on / .autoreact off</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">disablereact</div>
-    <div class="command-desc">Turns off auto-react for a user.</div>
-    <div class="command-usage">Usage: .disablereact @user</div>
-  </div>
-
-
-  <div class="command">
-    <div class="command-name">stream</div>
-    <div class="command-desc">Changes your rich presence status.</div>
-    <div class="command-usage">Usage: .stream New Music</div>
-  </div>
-  <div class="command">
-    <div class="command-name">stopstream</div>
-    <div class="command-desc">Stops your streaming status.</div>
-    <div class="command-usage">Usage: .stopstream </div>
-  </div>
-  <div class="command">
-    <div class="command-name">GPT</div>
-    <div class="command-desc">Uses OpenAI to generate a response.</div>
-    <div class="command-usage">Usage: .GPT what's a haiku?</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">google</div>
-    <div class="command-desc">Returns a top Google search result.</div>
-    <div class="command-usage">Usage: .google discord bot tutorial</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">screenshot</div>
-    <div class="command-desc">Takes a screenshot of a site.</div>
-    <div class="command-usage">Usage: .screenshot https://discord.com</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">tiktok</div>
-    <div class="command-desc">Finds a TikTok video using a keyword.</div>
-    <div class="command-usage">Usage: .tiktok funny cat</div>
-  </div>
-  <div class="command">
-    <div class="command-name">prefix</div>
-    <div class="command-desc">Shows or changes the bot prefix.</div>
-    <div class="command-usage">Usage: .prefix or .setprefix !</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">uptime</div>
-    <div class="command-desc">Displays how long the bot has been online.</div>
-    <div class="command-usage">Usage: .uptime</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">restart</div>
-    <div class="command-desc">Restarts the bot (owner only).</div>
-    <div class="command-usage">Usage: .restart</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">vc</div>
-    <div class="command-desc">Joins a voice channel by ID.</div>
-    <div class="command-usage">Usage: .vc 1234567890</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">vcdisconnect</div>
-    <div class="command-desc">Disconnects from a voice channel.</div>
-    <div class="command-usage">Usage: .vcdisconnect</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">vcstatus</div>
-    <div class="command-desc">Shows your VC mute/deafen state.</div>
-    <div class="command-usage">Usage: .vcstatus</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">vcmute</div>
-    <div class="command-desc">Toggles your mute status in VC.</div>
-    <div class="command-usage">Usage: .vcmute</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">vcdeafen</div>
-    <div class="command-desc">Toggles your deafen status in VC.</div>
-    <div class="command-usage">Usage: .vcdeafen</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">password</div>
-    <div class="command-desc">Generates a random secure password.</div>
-    <div class="command-usage">Usage: .password</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">encrypt</div>
-    <div class="command-desc">Encrypts a message using Caesar cipher.</div>
-    <div class="command-usage">Usage: .encrypt hello 4</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">decrypt</div>
-    <div class="command-desc">Decrypts a Caesar-encrypted message.</div>
-    <div class="command-usage">Usage: .decrypt lipps 4</div>
-  </div>
-
-
-  <div class="command">
-    <div class="command-name">validateemail</div>
-    <div class="command-desc">Checks if an email is real or temporary.</div>
-    <div class="command-usage">Usage: .validateemail test@mail.com</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">validatenumber</div>
-    <div class="command-desc">Checks if a phone number is valid or fake.</div>
-    <div class="command-usage">Usage: .validatenumber +123456789</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">ipinfo</div>
-    <div class="command-desc">Looks up IP address details.</div>
-    <div class="command-usage">Usage: .ipinfo 8.8.8.8</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">reload</div>
-    <div class="command-desc">Reloads a module (dev only).</div>
-    <div class="command-usage">Usage: .reload commands.help</div>
-  </div>
-  <div class="command">
-    <div class="command-name">txt</div>
-    <div class="command-desc">Creates and sends a .txt file from your message.</div>
-    <div class="command-usage">Usage: .txt notes Hello there!</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">lock</div>
-    <div class="command-desc">Locks the current text channel.</div>
-    <div class="command-usage">Usage: .lock</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">unlock</div>
-    <div class="command-desc">Unlocks the channel so people can type again.</div>
-    <div class="command-usage">Usage: .unlock</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">copyfiles</div>
-    <div class="command-desc">Copies files from one folder to another (local).</div>
-    <div class="command-usage">Usage: .copyfiles ./source ./dest</div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">unzip</div>
-    <div class="command-desc">Extracts all files from an uploaded zip archive.</div>
-    <div class="command-usage">Usage: .unzip |zipfile| </div>
-  </div>
-
-  <div class="command">
-    <div class="command-name">zip</div>
-    <div class="command-desc">Compresses your uploaded files into a .zip file.</div>
-    <div class="command-usage">Usage: .zip mybackup</div>
-  </div>
   <script>
+    const searchInput = document.getElementById('searchInput');
+    const commandCards = document.querySelectorAll('.command-card');
+    const categoryButtons = document.querySelectorAll('.category');
     function filterCommands() {
-      const input = document.getElementById("searchBox");
-      const filter = input.value.toLowerCase();
-      const commands = document.getElementsByClassName("command");
-
-      for (let i = 0; i < commands.length; i++) {
-        const cmdText = commands[i].textContent || commands[i].innerText;
-        commands[i].style.display = cmdText.toLowerCase().includes(filter) ? "" : "none";
-      }
+      const term = searchInput.value.toLowerCase();
+      const activeCategory = document.querySelector('.category.active').dataset.category;
+      commandCards.forEach(card => {
+        const name = card.querySelector('h3').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
+        const cardCategory = card.dataset.category;
+        const matchesSearch = name.includes(term) || desc.includes(term);
+        const matchesCategory = (activeCategory === 'all' || activeCategory === cardCategory);
+        card.classList.toggle('hidden', !(matchesSearch && matchesCategory));
+      });
     }
+    searchInput.addEventListener('input', filterCommands);
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterCommands();
+      });
+    });
+    filterCommands();
   </script>
-
 </body>
 </html>
