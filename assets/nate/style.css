@@ -1,0 +1,228 @@
+:root {
+    --bg-uwu: #000000;
+    --text-main: #ffffff;
+    --text-soft: #d3d3d3;
+    --bar-bg: rgba(100, 100, 100, 0.1);
+    --bar-fill: var(--text-soft);
+    --bar-fill-hover: var(--text-main);
+    --border-color: #18181885;
+    --font-inter: 'inter', sans-serif;
+    --font-title: 'vcr', sans-serif;
+}
+
+@font-face {
+    font-family: 'vcr';
+    src: url('../fonts/vcr.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: karla, -apple-system, blinkmacsystemfont, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', sans-serif;
+    background-color: var(--bg-uwu);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 24px 0;
+    cursor: url('../assets/glock.cur'), auto;
+}
+
+a, button {
+    cursor: inherit;
+}
+
+#background-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+}
+
+.mainbrr {
+    width: 100%;
+    max-width: 420px;
+    background: #00000070;
+    border-radius: 12px;
+    padding: 24px;
+    z-index: 1;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#cursor {
+    display: none;
+}
+
+.user-card {
+    background: var(--card-inner-bg);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.status-avatar-wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+#discord-avatar { 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%; 
+    background-color: #1a1821; 
+}
+.status-indicator {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid var(--card-inner-bg);
+}
+.status-indicator.online { background-color: #23a559; }
+.status-indicator.idle { background-color: #f0b232; }
+.status-indicator.dnd { background-color: #f23f43; }
+.status-indicator.offline { background-color: #80848e; }
+
+.username-wrapper { display: flex; align-items: center; gap: 8px; }
+.status-info h3 { 
+    font-size: 15px; 
+    font-weight: 600; 
+}
+#discord-status-text {
+    font-size: 13px;
+    color: var(--text-soft);
+    text-transform: capitalize;
+}
+#copy-username-btn { 
+    background: none; 
+    border: none; 
+    color: var(--text-soft); 
+    padding: 0; 
+    display: flex; 
+    align-items: center; 
+    transition: color 0.2s; 
+}
+#copy-username-btn:hover { 
+    color: var(--text-main); 
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 0;
+}
+
+.activities-section, .activity-item, .contacts-list, .music-player, .player-top, .player-middle, .playback-controls, .volume-controls {
+    display: flex;
+}
+.activities-section, .contacts-list, .music-player { flex-direction: column; }
+.activities-section, .contacts-list { gap: 12px; }
+.music-player { gap: 8px; }
+.activity-item, .player-top, .player-middle, .playback-controls, .volume-controls { align-items: center; gap: 10px; }
+.player-middle { justify-content: space-between; }
+
+
+.activity-icon { flex-shrink: 0; color: var(--text-soft); }
+.activity-details h4 { font-size: 14px; font-weight: 500; line-height: 1.2; }
+.activity-details p { font-size: 13px; color: var(--text-soft); line-height: 1.4; }
+.hidden { display: none; }
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-soft);
+    transition: color 0.2s;
+}
+.contact-link:hover { color: var(--text-main); }
+
+.music-player { border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; }
+.album-art { width: 28px; height: 28px; border-radius: 4px; object-fit: cover; }
+.song-details { flex: 1; }
+.song-details h3 { font-size: 12px; font-weight: 500; }
+.song-details p { font-size: 12px; color: var(--text-soft); }
+.playback-controls button { background: none; border: none; color: var(--text-soft); padding: 0; transition: color 0.2s; }
+.playback-controls button:hover { color: var(--text-main); }
+.volume-bar { width: 48px; height: 2px; background: var(--bar-bg); border-radius: 99px; }
+.volume-bar-fill { height: 100%; background: var(--bar-fill); border-radius: 99px; }
+.volume-controls:hover .volume-bar-fill { background: var(--bar-fill-hover); }
+.volume-controls span { font-size: 12px; color: var(--text-soft); width: 24px; }
+.player-bottom { position: relative; }
+.progress-bar { width: 100%; height: 2px; background: var(--bar-bg); border-radius: 99px; }
+.progress-bar-fill { height: 100%; background: var(--bar-fill); border-radius: 99px; }
+.progress-bar:hover .progress-bar-fill { background: var(--bar-fill-hover); }
+.timestamps { display: flex; justify-content: space-between; margin-top: 2px; }
+.timestamps span { font-size: 12px; color: var(--text-soft); }
+
+#copy-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: #0c0c0c85;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 14px;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+#copy-notification.show { opacity: 1; transform: translate(-50%, 0); }
+#character-image {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-height: 25vh;
+    max-width: 400px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 1;
+    transform: translateY(0);
+}
+#entry-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-uwu);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'vcr';
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+#entry-layer p { font-family: var(--font-title); font-size: 24px; color: var(--text-main); user-select: none; }
