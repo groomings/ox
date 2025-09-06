@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     lucide.createIcons();
-    animateTitle("sadist.lol/btr");
+    animateTitle("sadist.lol/versatile");
     loadSong(currentSongIndex);
 
     playBtn.addEventListener('click', () => player.paused ? player.play() : player.pause());
