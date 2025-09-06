@@ -1,9 +1,8 @@
 {
   "version": 2,
   "routes": [
+    { "handle": "filesystem" },
     { "src": "^/bot/?$", "dest": "/btr/btr.html" },
-    { "src": "^/server/?$", "dest": "/nate/nate.html" },
-
-    { "src": "/(assets|btr|nate|songs)/(.*)", "dest": "/$1/$2" }
+    { "src": "^/server/?$", "dest": "/nate/nate.html" }
   ]
 }
