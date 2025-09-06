@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
-    { "src": "^/veratile/?$", "dest": "/btr/btr.html" },
+    { "src": "^/veratile/?$", "dest": "/versatile/versatile.html" },
     { "src": "^/nate/?$", "dest": "/nate/nate.html" }
   ]
 }
