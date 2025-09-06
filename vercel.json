@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "^/veratile/?$", "dest": "/versatile/versatile.html" },
-    { "src": "^/nate/?$", "dest": "/nate/nate.html" }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/versatile", "destination": "/versatile/versatile.html" },
+    { "source": "/nate", "destination": "/nate/nate.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(css|js|png|jpg|jpeg|gif|svg|mp3)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
   ]
 }
