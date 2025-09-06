@@ -1,14 +1,9 @@
 {
   "version": 2,
   "routes": [
-    {
-      "src": "/bot",
-      "dest": "/bot.html"
-    },
-    {
-      "src": "/server",
-      "dest": "/server.html"
-    }
-  ],
-  "name": "sadist.lol"
+    { "src": "^/bot/?$", "dest": "/btr/btr.html" },
+    { "src": "^/server/?$", "dest": "/nate/nate.html" },
+
+    { "src": "/(assets|btr|nate|songs)/(.*)", "dest": "/$1/$2" }
+  ]
 }
