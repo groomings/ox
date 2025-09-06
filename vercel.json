@@ -2,7 +2,7 @@
   "version": 2,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/versatile", "destination": "/versatile/versatile.html" },
-    { "source": "/nate", "destination": "/nate/nate.html" }
+    { "source": "/versatile", "destination": "/versatile/index.html" },
+    { "source": "/nate", "destination": "/nate/index.html" }
   ]
 }
